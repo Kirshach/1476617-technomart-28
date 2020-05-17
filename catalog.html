@@ -69,6 +69,15 @@
   				<form action="#" method="get">
   					<fieldset>
   						<legend>Цена:</legend>
+  						<label for="price-range" class="visually-hidden">Ценовой диапазон</label>
+  						<input type="range" id="price-range" name="price-range" min="0" max="30000">
+  						<p>
+  							<label for="min-price" class="visually-hidden">Минимальная цена</label>
+  							<input type="number" id="min-price" name="min-price" min="0">
+  							&ndash;
+  							<label for="max-price" class="visually-hidden">Максимальная цена</label>
+  							<input type="number" id="max-price" name="max-price" min="0">
+  						</p>
   					</fieldset>
   					<fieldset>
   						<legend>Производители:</legend>
@@ -102,6 +111,14 @@
   			</section>
   			<section>
   				<h3 class="visually-hidden">Список товаров</h3>
+				<span>Сортировка:</span>
+				<ul>
+  					<li><a href="#">По цене</a></li>
+  					<li><a href="#">По типу</a></li>
+  					<li><a href="#">По функционалу</a></li>
+  					<li><a href="#">По возрастанию</a></li>
+  					<li><a href="#">По убыванию</a></li>
+  				</ul>
   				<ul>
   					<li>
   						<a href="#">
@@ -174,10 +191,31 @@
   						</a>
   					</li>
   				</ul>
+  				<ol>
+  					<li>
+  						<a href="#">
+  							<span class="visually-hidden">Страница </span>1
+  						</a>
+  					</li>
+  					<li>
+  						<a href="#">
+  							<span class="visually-hidden">Страница </span>2
+  						</a>
+  					</li>
+  					<li>
+  						<a href="#">
+  							<span class="visually-hidden">Страница </span>3
+  						</a>
+  					</li>
+  				</ol>
+  				<a href="#">
+  					Следующая <span class="visually-hidden"> cтраница</span>
+  				</a>
   			</section>
   		</section>
   		<aside>
-  			
+  			<h2>Пара слов о перфораторах</h2>
+  			<p>Перфоратор - универсальный строительный инструмент. Предназначен для сверления и долбления отверстий в кирпиче, бетоне и камне. Существуют электромеханические и пневматические перфораторы. Современные модели могут выполнять функции дрели, шурупорверта и отбойного молотка. В ассортиментном ряду есть выбор «трехрежимников»: в одном устройстве будут совмещены отбойный молоток и ударная дрель.</p>
   		</aside>
   	</main>
   	<footer>
