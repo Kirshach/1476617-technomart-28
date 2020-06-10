@@ -13,18 +13,19 @@
         <a class="logo">
           <img src="img/logo_header.png" width="220" height="47" alt="Техномарт">
         </a>
-        <form action="https://echo.htmlacademy.ru/courses" method="get" class="searchform">
+        <form action="https://echo.htmlacademy.ru/courses" method="get" class="search-form">
           <label for="searchbar" class="visually-hidden">Поиск:</label>
           <input id="searchbar" class="searchbar" type="text" name="search" placeholder="Поиск:">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17"><path class="search-icon-path" fill="#ffffff" d="M17 15.586l-3.542-3.542A7.465 7.465 0 0 0 15 7.5 7.5 7.5 0 1 0 7.5 15c1.71 0 3.282-.579 4.544-1.542L15.586 17 17 15.586zM2 7.5C2 4.467 4.467 2 7.5 2 10.532 2 13 4.467 13 7.5c0 3.032-2.468 5.5-5.5 5.5A5.506 5.506 0 0 1 2 7.5z"/></svg>
         </form>
-        <ul>
-          <li class="headerpanel-item bookmarks-item">
+        <ul class="headerpanel-menu">
+          <li class="headerpanel-menu-item bookmarks-item">
             <a href="#">Закладки: 0</a>
           </li>
-          <li class="headerpanel-item basket-item"> 
+          <li class="headerpanel-menu-item basket-item"> 
             <a href="#">Корзина: 0</a>
           </li>
-          <li class="headerpanel-item alt-headerpanel-item">
+          <li class="headerpanel-menu-item alt-headerpanel-item">
             <a href="#">Оформить заказ</a>
           </li>
         </ul>
@@ -41,7 +42,7 @@
         <address>г. Санкт-Петербург, ул. Б. Конюшенная, д. 19/8</address>
       </div>
       <div class="usermenu-container">
-        <button type="button" class="usermenu-button login-button">Войти</button>
+        <a href="#" class="usermenu-button login-button"><svg class="login-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path class="login-icon-path" fill="#c5c5c5" d="M14.875 8.5L6 0v6H0v5h6v6z"/><path class="login-icon-path" fill="#c5c5c5" d="M16.986 15.01h-5.027V17h5.027c2.178 0 3.004-1.81 3.029-3.026V3.028C19.99 1.811 19.164 0 16.986 0h-5.027v1.99h5.027c.839 0 .992.681 1.01 1.057v10.904c-.017.376-.171 1.059-1.01 1.059z"/></svg> Войти</a>
         <a href="#" class="usermenu-button reg-button">Регистрация</a>
       </div>
     </div>
@@ -64,37 +65,37 @@
     <section class="container promo">
       <h2 class="visually-hidden">Магазин «Техномарт» предлагает:</h2>
       <ul>
-        <li class="promo-block-materials">
+        <li class="promo-block-materials new-item">
           <h3>Материалы</h3>
-          <a href="#" class="promobutton">
+          <a href="#" class="promo-button">
             На любой вкус
           </a>
         </li>
         <li class="promo-block-instruments">
           <h3>Инструмент</h3>
-          <a href="#" class="promobutton">
+          <a href="#" class="promo-button">
             На все случаи
           </a>
         </li>
         <li class="promo-block-equipment">
           <h3>Техника</h3>
-          <a href="#" class="promobutton">
+          <a href="#" class="promo-button">
             Для стройки
           </a>
         </li>
         <li class="promo-block-sale">
           <h3>Скидки 50%</h3>
-          <a href="#" class="promobutton">
+          <a href="#" class="promo-button">
             На 350 товаров
           </a>
         </li>
         <li class="promo-block-delivery">
           <h3>Доставка</h3>
-          <a href="#" class="promobutton">
+          <a href="#" class="promo-button">
             Бесплатно
           </a>
         </li>
-        <li class="promo-offer">
+        <li class="promo-slides">
           <img src="img/promo_perforators.jpg" width="620" height="266" alt="">
           <div class="promo-label">
             <h3 class="promo-header">Перфораторы</h3>
@@ -111,36 +112,44 @@
         <a href="#" class="box-link">Все популярные товары</a>
       </div>
       <ul class="popular-items-list">
-        <li>
-          <a href="#" class="product-card bfg-9000">
+        <li class="product-card">
+          <div class="product-card-menu">
             <img src="img/bosch_bfg_9000.jpg" width="184" height="164" alt="">
-            <h3>Перфоратор BOSCH BFG 9000</h3>
-            <del><span class="visually-hidden">. Старая цена:</span>32500 Р.</del>
-            <p class="product-price on-sale"><span class="visually-hidden">Новая цена: </span>25500 Р.</p>
-          </a>
+            <a class="product-card-button add-item-button">Купить</a>
+            <a class="product-card-button add-bookmark-button">В закладки</a>
+          </div>
+          <h3>Перфоратор BOSCH BFG 9000</h3>
+          <del><span class="visually-hidden">. Старая цена:</span>32500 Р.</del>
+          <p class="product-price on-sale"><span class="visually-hidden">Новая цена: </span>25500 Р.</p>
         </li>
-        <li>
-          <a href="#" class="product-card bfg-3000">
-            <img src="img/bosch_bfg.jpg" width="127" height="112" alt="">
-            <h3>Перфоратор BOSCH BFG 3000</h3>
-            <del><span class="visually-hidden">. Старая цена:</span>22500 Р.</del>
-            <p class="product-price on-sale"><span class="visually-hidden">Новая цена: </span>15500 Р.</p>
-          </a>
+        <li class="product-card new-item">
+          <div class="product-card-menu">
+            <img src="img/bosch_bfg.jpg" width="184" height="164" alt="">
+            <a class="product-card-button add-item-button">Купить</a>
+            <a class="product-card-button add-bookmark-button">В закладки</a>
+          </div>
+          <h3>Перфоратор BOSCH BFG 3000</h3>
+          <del><span class="visually-hidden">. Старая цена:</span>22500 Р.</del>
+          <p class="product-price on-sale"><span class="visually-hidden">Новая цена: </span>15500 Р.</p>
         </li>
-        <li>
-          <a href="#" class="product-card bfg-6000">
-            <img src="img/bosch_bfg_6000.jpg" width="144" height="128" alt="">
-            <h3>Перфоратор BOSCH BFG 6000</h3>
-            <del><span class="visually-hidden">. Старая цена:</span>30500 Р.</del>
-            <p class="product-price on-sale"><span class="visually-hidden">Новая цена: </span>25500 Р.</p>
-          </a>
+        <li class="product-card">
+          <div class="product-card-menu">
+            <img src="img/bosch_bfg_6000.jpg" width="184" height="164" alt="">
+            <a class="product-card-button add-item-button">Купить</a>
+            <a class="product-card-button add-bookmark-button">В закладки</a>
+          </div>
+          <h3>Перфоратор BOSCH BFG 6000</h3>
+          <del><span class="visually-hidden">. Старая цена:</span>30500 Р.</del>
+          <p class="product-price on-sale"><span class="visually-hidden">Новая цена: </span>25500 Р.</p>
         </li>
-        <li>
-          <a href="#" class="product-card bfg-2000">
-            <img src="img/bosch_bfg.jpg" width="127" height="112" alt="">
-            <h3>Перфоратор BOSCH BFG 2000</h3>
-            <p class="product-price"><span class="visually-hidden">. Цена:</span>12500 Р.</p>
-          </a>
+        <li class="product-card new-item">
+          <div class="product-card-menu">
+            <img src="img/bosch_bfg.jpg" width="184" height="164" alt="">
+            <a class="product-card-button add-item-button">Купить</a>
+            <a class="product-card-button add-bookmark-button">В закладки</a>
+          </div>
+          <h3>Перфоратор BOSCH BFG 2000</h3>
+          <p class="product-price"><span class="visually-hidden">. Цена:</span>12500 Р.</p>
         </li>
       </ul>
     </section>
@@ -297,24 +306,28 @@
     </div>
     <div class="footerpanel">
       <div class="container">
-        <p>&copy; 2010&ndash;2019 Компания &laquo;Техномарт&raquo;<br>
+        <p class="footer-copyright">&copy; 2010&ndash;2019 Компания &laquo;Техномарт&raquo;<br>
         Все права защищены</p>
         <ul class="socials">
           <li>
-            <a href="#">Вконтакте</a>
+            <a href="#" class="vk-icon"><span class="visually-hidden">Вконтакте</span></a>
           </li>
           <li>
-            <a href="#">Фейсбук</a>
+            <a href="#" class="fb-icon"><span class="visually-hidden">Фейсбук</span></a>
           </li>
           <li>
-            <a href="#">Инстаграм</a>
+            <a href="#" class="insta-icon"><span class="visually-hidden">Инстаграм</span></a>
           </li>
         </ul>
-        <ul>
-          <li>Обратная связь:<br>
-          <a href="mailto:mail@htmlacademy.ru" class="footeritem-accented">mail@htmlacademy.ru</a></li>
-          <li class="developed-by">Разработано &ndash;<br>
-          <a href="https://htmlacademy.ru/intensive/htmlcss" class="footeritem-accented">htmlacademy.ru</a></li>
+        <ul class="footer-feedback-list">
+          <li>
+            Обратная связь:
+            <a href="mailto:mail@htmlacademy.ru" class="footeritem-accented">mail@htmlacademy.ru</a>
+          </li>
+          <li class="developed-by">
+            Разработано &mdash;<br>
+            <a href="https://htmlacademy.ru/intensive/htmlcss" class="footeritem-accented">htmlacademy.ru</a>
+          </li>
         </ul>
       </div>
     </div>
