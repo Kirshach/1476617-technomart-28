@@ -58,7 +58,7 @@
       </ul>
     </nav>
   </header>
-  <main>
+  <main class="main-page">
     <h1 class="visually-hidden">
       Главная страница интернет-магазина «Техномарт»
     </h1>
@@ -83,35 +83,6 @@
             Для стройки
           </a>
         </li>
-        <li class="promo-slides">
-          <button type="button" class="promo-control-button promo-previous" aria-label="Предыдушее предложение"></button>
-          <button type="button" class="promo-control-button promo-next" aria-label="Следующее предложение">
-          </button>
-          <ul>
-            <li class="promo-current-slide">
-              <img src="img/promo_perforators.jpg" width="620" height="266" alt="">
-              <div class="promo-slides-label">
-                <h3 class="promo-slides-heading">Перфораторы</h3>
-                <p>Настоящие мужские игрушки</p>
-              </div>
-              <a href="catalog.html" class="box-link open-catalog-button">Открыть каталог</a>
-            </li>
-            <li>
-              <img src="img/promo_drills.jpg" width="620" height="266" alt="">
-              <div class="promo-slides-label">
-                <h3 class="promo-slides-heading">Дрели</h3>
-                <p>Соседям на радость!</p>
-              </div>
-              <a href="catalog.html" class="box-link open-catalog-button">Открыть каталог</a>
-            </li>
-          </ul>
-          <div class="promo-slide-paging">
-            <div class="promo-paging-container">
-              <button type="button" aria-label="Первое предложение" class="promo-slidenum-button"></button>
-              <button type="button" aria-label="Второе предложение" class="promo-slidenum-button promo-current-button"></button>
-            </div>
-          </div>
-        </li>
         <li class="promo-block promo-block-sale">
           <h3>Скидки 50%</h3>
           <a href="#" class="promo-button">
@@ -123,6 +94,35 @@
           <a href="#" class="promo-button">
             Бесплатно
           </a>
+        </li>
+        <li class="promo-slides">
+          <button type="button" class="promo-control-button promo-previous" aria-label="Предыдушее предложение"></button>
+          <button type="button" class="promo-control-button promo-next" aria-label="Следующее предложение">
+          </button>
+          <ul>
+            <li class="promo-slide is-displayed">
+              <img src="img/promo_perforators.jpg" width="620" height="266" alt="">
+              <div class="promo-slides-label">
+                <h3 class="promo-slides-heading">Перфораторы</h3>
+                <p>Настоящие мужские игрушки</p>
+              </div>
+              <a href="catalog.html" class="box-link open-catalog-button">Открыть каталог</a>
+            </li>
+            <li class="promo-slide">
+              <img src="img/promo_drills.jpg" width="620" height="266" alt="">
+              <div class="promo-slides-label">
+                <h3 class="promo-slides-heading">Дрели</h3>
+                <p>Соседям на радость!</p>
+              </div>
+              <a href="catalog.html" class="box-link open-catalog-button">Открыть каталог</a>
+            </li>
+          </ul>
+          <div class="promo-slide-paging">
+            <div class="promo-paging-container">
+              <button type="button" aria-label="Первое предложение" class="promo-slidenum-button promo-current-button" tabindex="-1"></button>
+              <button type="button" aria-label="Второе предложение" class="promo-slidenum-button" tabindex="-1"></button>
+            </div>
+          </div>
         </li>
       </ul>
     </section>
@@ -231,7 +231,7 @@
         <div class="services-internal-container">
           <ul class="services-buttons-list">
             <li>
-              <button type="button" class="services-button current-service-button">Доставка</button>
+              <button type="button" class="services-button current-service-button" tabindex="-1">Доставка</button>
             </li>
             <li>
               <button type="button" class="services-button">Гарантия</button>
@@ -293,7 +293,9 @@
           Вы можете забрать товар сами,<br>
           заехав в наш офис:
         </p>
-        <img src="img/map.jpg" height="158" width="300" alt="Как до нас добраться">
+        <a class="open-map-popup" aria-label="Открыть интерактивную карту" tabindex="0">
+          <img src="img/map.jpg" height="158" width="300" alt="Мини-карта расположения нашего офиса">
+        </a>
         <button class="box-link write-us-button">Заблудились? Напишите нам!</button>
       </section>
       <section class="write-us-popup">
@@ -301,23 +303,36 @@
         <form action="https://echo.htmlacademy.ru/courses" method="get" class="write-us-form">
           <div class="write-us-name-container">
             <label for="write-us-name"> Ваше имя:</label>
-            <input id="write-us-name" type="text" name="name" placeholder="Имя Фамилия">
+            <input id="write-us-name" type="text" name="name" placeholder="Имя Фамилия" class="write-us-login">
           </div>
           <div class="write-us-email-container">
             <label for="write-us-email"> Ваш e-mail:</label>
-            <input id="write-us-email" type="email" name="email" placeholder="email@example.com">
+            <input id="write-us-email" type="email" name="email" placeholder="email@example.com" class="write-us-email">
           </div>
           <div class="write-us-message-container">
             <label for="write-us-message"> Текст письма:</label>
-            <textarea id="write-us-message" name="message" placeholder="В свободной форме"></textarea>
+            <textarea id="write-us-message" name="message" placeholder="В свободной форме" class="write-us-message"></textarea>
           </div>
           <div class="write-us-submit-container">
             <button type="submit" class="box-link write-us-submit-button">Отправить</button>
           </div>
-          <button type="button" class="write-us-close-button" aria-label="Закрыть окно"></button>
+          <button type="button" class="close-popup-button write-us-close-button" aria-label="Закрыть окно"></button>
         </form>
       </section>
+      <div class="map-popup">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4714.286205003401!2d30.31424910519582!3d59.939214515493546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca5ba729%3A0xea9c53d4493c879f!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQuy4sIDE5LCDQodCw0L3QutGCLdCf0LXRgtC10YDQsdGD0YDQsywgMTkxMTg2!5e0!3m2!1sru!2sru!4v1592508149220!5m2!1sru!2sru" width="943" height="449" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        <button type="button" class="close-popup-button map-popup-close-button" tabindex="0"></button>
+      </div>
     </div>
+    <section class="added-to-basket-popup">
+      <h2 class="visually-hidden">Уведомление</h2>
+      <p>Товар добавлен в корзину!</p>
+      <div class="added-to-basket-bottom">
+        <button type="button" class="close-popup-button added-to-basket-close" aria-label="Закрыть окно"></button>
+        <a href="" class="box-link make-order-button">Оформить заказ</a>
+        <button type="button" class="box-link continue-purchase-button">Продолжить покупки</button>
+      </div>
+    </section>
   </main>
   <footer class="main-footer">
     <div class="container upper-footer">
@@ -376,5 +391,6 @@
       </div>
     </div>
   </footer>
+  <script type="text/javascript" src="js/scripts.js"></script>
 </body>
 </html>
