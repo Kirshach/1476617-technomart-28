@@ -74,6 +74,7 @@
     --inactive-secondary-color: #a9a9a9;
     --border-grey-color: #e5e5e5;
     --focus-outline-color: rgba(0, 0, 0, 0.43);
+    --promo-slides-bg-color: #321602;
 
     --added-to-basket-color: #f1f1f1;
     --mainnav-active-color: #1d2739;
@@ -156,14 +157,13 @@ a:visited {
     margin: 0 auto;
 }
 
-section h2,
-.services h3 {
+.section-header {
     font-family: var(--heading-font-family);
-    text-transform: uppercase;
     font-size: 30px;
     line-height: 30px;
     font-weight: 400;
     color: var(--panels-main-color);
+    text-transform: uppercase;
 }
 
 .section-heading {
@@ -402,11 +402,11 @@ section h2,
 
 .close-popup-button {
     position: absolute;
-    top: 8px;
-    right: 1px;
+    top: 7px;
+    right: 0px;
 
-    width: 39px;
-    height: 39px;
+    width: 40px;
+    height: 40px;
     border: none;
 
     background: url(../img/icon_close.svg) no-repeat 9px 9px;
@@ -418,18 +418,12 @@ section h2,
     background-color: var(--promo-transparent-color);
 }
 
-.promo-slides .is-displayed,
-.map-popup.is-displayed,
-.write-us-popup.is-displayed,
-.added-to-basket-popup.is-displayed {
+section.is-displayed,
+div.is-displayed {
     display: block;
-}
-
-.map-popup.is-displayed,
-.write-us-popup.is-displayed {
     animation: bounce 0.6s;
+    z-index: 5;
 }
-
 
 /*                               */
 /*             Хэдер             */
@@ -933,6 +927,7 @@ section h2,
 
 .main-footer li {
     display: inline-block;
+    vertical-align: baseline;
 }
 
 .main-footer address {
@@ -1116,7 +1111,7 @@ section h2,
     margin-left: 48px;
 }
 
-.footeritem-accented {
+.footerpanel .footeritem-accented {
     color: var(--text-additional-color);
 }
 
@@ -1125,7 +1120,6 @@ section h2,
     text-decoration: none;
     opacity: 100%;
 }
-
 
 
 /*                               */
@@ -1210,7 +1204,9 @@ section h2,
 
 /* Слайды промо-предложений */
 
+
 .promo-slides {
+    display: block;
     position: relative;
     grid-column: 1 / 3;
     grid-row: 2 / 4;
@@ -1220,18 +1216,32 @@ section h2,
 
     font-size: 18px;
     line-height: 24px;
-    background-color: var(--text-additional-color);
+    background-color: var(--promo-slides-bg-color);
     overflow: hidden;
-}
-
-.promo-slides li {
-    display: none;
 }
 
 .promo-slides > ul {
     margin: 0;
     padding: 0;
 }
+
+.promo-slides li {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.promo-slides .promo-current {
+    display: block;
+    z-index: 2;
+}
+
+.promo-slides .promo-previous {
+    display: block;
+    z-index: 1;
+}
+
 .promo-slides-label {
     position: absolute;
     top: 0px;
@@ -1280,13 +1290,15 @@ section h2,
     background-color: transparent;
 }
 
-.promo-previous {
+.promo-previous-button {
     left: 24px;
+    z-index: 3;
     background: url(../img/icon_left.svg) no-repeat 0 0;
 }
 
-.promo-next {
+.promo-next-button {
     right: 20px;
+    z-index: 3;
     background: url(../img/icon_right.svg) no-repeat 0 0;
 }
 
@@ -1322,6 +1334,7 @@ section h2,
     padding: 0;
     border: 2px solid var(--bg-main-color);
     margin: 0;
+    z-index: 3;
 
     background-color: var(--bg-main-color);
     border-radius: 50%;
@@ -1338,9 +1351,9 @@ section h2,
 
 .open-catalog-button {
     position: absolute;
-    bottom: 27px;
-    left: 24px;
-    z-index: 1;
+    bottom: 6px;
+    left: 19px;
+    z-index: 3;
 }
 
 /* Дополнительные промо-блоки */
@@ -1583,6 +1596,7 @@ section h2,
 
 .service-info-credit .box-link {
     width: 195px;
+    margin-bottom: 13px;
 
     background-color: var(--accent-main-altcolor);
     border-radius: 2px;
@@ -1712,17 +1726,24 @@ section h2,
 .map-popup {
     display: none;
 
-    position: absolute;
-    top: 14px;
-    left: -10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
 
     height: 440px;
     width: 943px;
+    margin-top: -220px;
+    margin-left: -471px;
+
     background-color: var(--text-additional-color);
     background-image: url(../img/map_popup_preview.png);
     background-position: 0 0;
     background-repeat: no-repeat;
     box-shadow: 0px 4px 20px var(--product-card-shadow-color);
+}
+
+.map-popup iframe {
+    frameborder: 0;
 }
 
 .map-popup::after {
@@ -1743,14 +1764,15 @@ section h2,
 .write-us-popup {
     display: none;
 
-    position: absolute;
-    top: 12px;
-    left: 152px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
 
     width: 620px;
     height: 430px;
     padding: 0;
-    margin: 0;
+    margin-top: -215px;
+    margin-left:-310px;
 
     background-color: var(--bg-main-color);
     box-shadow: 0px 4px 20px var(--product-card-shadow-color)
@@ -1835,7 +1857,7 @@ section h2,
 .write-us-popup input {
     width: 100%;
     height: 38px;
-    padding: 9px 10px 11px;
+    padding: 7px 10px 5px 11px;
     border: 2px solid var(--inactive-color);
 
     border-radius: 2px;
@@ -2206,6 +2228,8 @@ section h2,
 }
 
 .filter-submit {
+    display: block; 
+
     width: 220px;
     height: 38px;
     border: 1px solid var(--border-grey-color);
@@ -2215,15 +2239,14 @@ section h2,
 
     background-color: var(--bg-main-color);
     cursor: pointer;
+    color: var(--text-main-color);
 }
 
-.filter-submit:hover,
-.filter-submit:focus {
-    outline: auto var(--inactive-color);
+.filter-submit:hover {
+    border-color: var(--inactive-color);
 }
 
 .filter-submit:active {
-    outline: auto var(--inactive-secondary-color);
     box-shadow: inset 0 0 3px 1px var(--inactive-color);
 }
 
@@ -2390,25 +2413,21 @@ section h2,
 
 .added-to-basket-popup {
     display: none;
-    position: absolute;
-    top: 655px;
-    left: 361px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     z-index: 2;
 
     width: 620px;
     height: 282px;
     padding: 0;
-    margin: 0;
+    margin-top: -141px;
+    margin-left: -310px;
 
     font-family: var(--heading-font-family);
 
     background-color: var(--bg-main-color);
     box-shadow: 0px 4px 20px var(--product-card-shadow-color)
-}
-
-.main-page .added-to-basket-popup {
-    top: 974px;
-    left: 410px;
 }
 
 .added-to-basket-popup::before {
@@ -2459,7 +2478,8 @@ section h2,
     color: var(--bg-main-color);
 }
 
-.continue-purchase-button {
+.continue-purchase-button,
+.continue-purchase-button:active {
     padding-bottom: 10px;
 
     color: var(--text-main-color);
@@ -2498,6 +2518,36 @@ section h2,
   100% {
     transform: translateY(0);
   }
+}
+
+@keyframes slideshow-next {
+    from { transform: translateX(-622px) }
+    to { transform: translateX(0)}
+}
+
+@keyframes slideshow-next-remove {
+    from { transform: translateX(0px) }
+    to { transform: translateX(622px) }
+}
+
+@keyframes slideshow-prev {
+    from { transform: translateX(622px) }
+    to { transform: translateX(0) }
+}
+
+@keyframes slideshow-prev-remove {
+    from { transform: translateX(0px) }
+    to { transform: translateX(-622px) }
+}
+
+@keyframes slideshow-fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideshow-fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
 }
 
 @keyframes shake {

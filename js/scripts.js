@@ -7,47 +7,65 @@
 //
 
 let promoSlides = document.querySelectorAll('.promo-slide');
+let promoButtons = document.querySelectorAll('.promo-slidenum-button');
+let promoPreviousSlide = document.querySelector('.promo-previous-button');
+let promoNextSlide = document.querySelector('.promo-next-button');
 let promoLength = promoSlides.length;
+let promoCurrent = 0;
+let promoPrevious = 1;
 
 if (promoLength !== 0) {
 
-	let promoCurrent = 0;
-	let promoButtons = document.querySelectorAll('.promo-slidenum-button');
+	if (promoLength > promoButtons.length) {
+		alert("Я сломался из-за того, что кнопок пагинации слайдов меньше, чем самих слайдов ( ͡° ͜ʖ ͡°)")
+	}
 
 	function promoShowSlides(i) {
-		promoSlides[promoCurrent].classList.remove('is-displayed');
+		promoSlides[promoPrevious].classList.remove('promo-previous');
+		promoSlides[promoCurrent].classList.remove('promo-current');
 		promoButtons[promoCurrent].classList.remove('promo-current-button');
-		promoSlides[i].classList.add('is-displayed');
-		promoButtons[i].classList.add('promo-current-button');
+
+		promoPrevious = promoCurrent;
 		promoCurrent = i;
+
+		promoSlides[promoPrevious].classList.add('promo-previous');
+		promoSlides[promoCurrent].classList.add('promo-current');
+		promoButtons[promoCurrent].classList.add('promo-current-button');
 	};
 
 	for (let i = 0; i < promoLength; i++) {
-	 	promoButtons[i].onclick = function(event) {
+	 		promoButtons[i].onclick = function(event) {
 	 		event.preventDefault();
 	 		promoShowSlides(i);
-		};
+			promoSlides[promoPrevious].style.animation = "slideshow-fadeout 0.4s";
+			promoSlides[promoCurrent].style.animation = "slideshow-fadein 0.4s";
+			}
 	};
-
-	let promoPreviousSlide = document.querySelector('.promo-previous');
-	let promoNextSlide = document.querySelector('.promo-next');
 
 	promoPreviousSlide.onclick = function(event) {
 		event.preventDefault();
-		if (promoCurrent > 0) {
-			promoShowSlides(promoCurrent - 1)
-		} else {
+
+		if (promoCurrent == 0) {
 			promoShowSlides(promoLength - 1)
+		} else {
+			promoShowSlides(promoCurrent - 1)
 		};
+
+		promoSlides[promoPrevious].style.animation = "slideshow-prev-remove 0.5s";
+		promoSlides[promoCurrent].style.animation = "slideshow-prev 0.5s";
 	};
 
 	promoNextSlide.onclick = function(event) {
 		event.preventDefault();
-		if (promoCurrent < (promoLength - 1)) {
-			promoShowSlides(promoCurrent + 1)
-		} else {
+
+		if (promoCurrent == (promoLength - 1)) {
 			promoShowSlides(0)
+		} else {
+			promoShowSlides(promoCurrent + 1)
 		};
+
+		promoSlides[promoPrevious].style.animation = "slideshow-next-remove 0.5s";
+		promoSlides[promoCurrent].style.animation = "slideshow-next 0.5s";
 	};
 
 }
@@ -58,11 +76,10 @@ if (promoLength !== 0) {
 
 let servicesSlides = document.querySelectorAll('.service-info');
 let servicesLength = servicesSlides.length;
+let servicesCurrent = 0;
+let servicesButtons = document.querySelectorAll('.services-button');
 
 if (servicesLength !== 0) {
-
-	let servicesCurrent = 0;
-	let servicesButtons = document.querySelectorAll('.services-button');
 
 	function servicesShowSlides(i) {
 		servicesSlides[servicesCurrent].classList.remove('current-service-info');
@@ -86,16 +103,15 @@ if (servicesLength !== 0) {
 //
 
 let mapPopup = document.querySelector('.map-popup');
+let openMapPopupButton = document.querySelector('.open-map-popup');
+let closeMapPopup = document.querySelector('.map-popup-close-button');
 
 if (mapPopup !== null) {
-
-	let openMapPopupButton = document.querySelector('.open-map-popup');
-	let closeMapPopup = document.querySelector('.map-popup-close-button');
 
 	openMapPopupButton.onclick = function(event) {
 		event.preventDefault();
 		mapPopup.classList.add('is-displayed');
-		setTimeout(function() { mapPopup.focus(); }, 600);
+		setTimeout(function() { closeMapPopup.focus(); }, 600);
 	};
 
 	closeMapPopup.onclick = function(event) {
@@ -119,19 +135,17 @@ if (mapPopup !== null) {
 //
 
 let writeUsPopup = document.querySelector('.write-us-popup');
+let writeUsForm = document.querySelector('.write-us-form');
+let writeUsButton = document.querySelector('.write-us-button');
+let closeWriteUsPopup = document.querySelector('.write-us-close-button');
+let writeUsNameField = document.querySelector('.write-us-login');
+let writeUsEmailField = document.querySelector('.write-us-email');
+let writeUsMessage = document.querySelector('.write-us-message');
+let hasStorageSupport = true;
+let storageName = "";
+let storageEmail = "";
 
 if (writeUsPopup !== null) {
-
-	let writeUsForm = document.querySelector('.write-us-form');
-	let writeUsButton = document.querySelector('.write-us-button');
-	let closeWriteUsPopup = document.querySelector('.write-us-close-button');
-	let writeUsNameField = document.querySelector('.write-us-login');
-	let writeUsEmailField = document.querySelector('.write-us-email');
-	let writeUsMessage = document.querySelector('.write-us-message');
-
-	var hasStorageSupport = true;
-	var storageName = "";
-	var storageEmail = "";
 
 	try {
 	 	storageName = localStorage.getItem("name");
@@ -209,6 +223,7 @@ if (addItemButtons != null) {
 		button.onclick = function(event) {
 			event.preventDefault();
 			addedToBasket.classList.add('is-displayed');
+			continuePurchaseButton.focus();
 		};
 	};
 
