@@ -100,15 +100,13 @@
 }
 
 body {
-    min-width: 940px;
-    padding: 0;
-    margin: 0;
-
-    font-family: var(--content-text-family);
+    font-family: var(--content-text-family), Verdana, Arial, sans-serif;
     font-size: 13px;
     line-height: 24px;
+
     background-color: var(--bg-main-color);
     color: var(--text-main-color);
+    outline-offset: -2px;
 }
 
 img {
@@ -135,7 +133,7 @@ a:visited {
 .markbutton,
 .main-header,
 .sortlist {
-    font-family: var(--heading-font-family, Arial, sans-serif);
+    font-family: var(--heading-font-family), 'Trebuchet MS', Arial, sans-serif;
     font-weight: 400;
 }
 
@@ -155,15 +153,20 @@ a:visited {
     position: relative;
     width: 940px;
     margin: 0 auto;
+    padding: 0;
 }
 
 .section-header {
-    font-family: var(--heading-font-family);
+    font-family: var(--heading-font-family), 'Trebuchet MS', Arial, sans-serif;
     font-size: 30px;
-    line-height: 30px;
+    line-height: 35px;
     font-weight: 400;
     color: var(--panels-main-color);
     text-transform: uppercase;
+}
+
+.section-header-with-link {
+    max-width: 600px;
 }
 
 .section-heading {
@@ -171,7 +174,7 @@ a:visited {
     justify-content: space-between;
     align-items: center;
 
-    height: 89px;
+    min-height: 89px;
     padding-left: 28px;
     margin-bottom: 20px;
 
@@ -213,19 +216,25 @@ a:visited {
 }
 
 .product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     position: relative;
 
-    height: 318px;
+    min-height: 318px;
     width: 220px;
     padding-left: 17px;
     padding-right: 16px;
+    padding-bottom: 20px;
     border: 1px solid var(--product-card-border-color);
     line-height: 18px;
 
-    font-family: var(--content-text-family);
+    font-family: var(--content-text-family), Verdana, Arial, sans-serif;
     font-weight: 700;
     font-size: 17px;
     color: var(--text-main-color);
+    overflow: hidden;
 }
 
 .product-card:hover,
@@ -238,9 +247,8 @@ a:visited {
 .product-card-menu {
     height: 170px;
     padding-top: 5px;
-    margin-bottom: 8px;
 
-    font-family: var(--heading-font-family);
+    font-family: var(--heading-font-family), 'Trebuchet MS', Arial, sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
@@ -248,13 +256,14 @@ a:visited {
 }
 
 .product-card-menu img {
+    display: block;
     height: 164px;
     object-fit: contain;
     background-color: var(--bg-main-color);
 }
 
 .new-item::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 8px;
     right: -25px;
@@ -299,7 +308,7 @@ a:visited {
 }
 
 .add-item-button::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 10px;
     left: 30px;
@@ -311,7 +320,7 @@ a:visited {
 }
 
 .add-item-button::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -358,12 +367,14 @@ a:visited {
 
 .product-card h3 {
     max-width: 185px;
+
     margin-top: 0px;
     margin-bottom: 39px;
 
     font-size: 18px;
     line-height: 21px;
     text-align: center;
+    overflow: hidden;
 }
 
 .product-card del {
@@ -469,7 +480,7 @@ div.is-displayed {
 }
 
 .logo-header::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
 
@@ -571,7 +582,7 @@ div.is-displayed {
 }
 
 .bookmarks-item a::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 13px;
     left: 20px;
@@ -591,7 +602,7 @@ div.is-displayed {
 }
 
 .basket-item a::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 13px;
     left: 12px;
@@ -653,7 +664,7 @@ div.is-displayed {
     display: flex;
     height: 158px;
 
-    font-family: var(--heading-font-family);
+    font-family: var(--heading-font-family), 'Trebuchet MS', Arial, sans-serif;
     font-size: 14px;
     line-height: 18px;
     color: var(--panels-main-color);
@@ -694,14 +705,14 @@ div.is-displayed {
 }
 
 .header-phone::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 10px;
     left: 37px;
 
     width: 19px;
     height: 19px;
-    background: url("../img/icon_phone.svg") no-repeat 0 0;
+    background: url('../img/icon_phone.svg') no-repeat 0 0;
 }
 
 .main-header address {
@@ -812,7 +823,7 @@ div.is-displayed {
 }
 
 .my-orders-link::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 7px;
     right: -18px;
@@ -848,7 +859,7 @@ div.is-displayed {
 }
 
 .main-nav::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;
@@ -875,7 +886,6 @@ div.is-displayed {
 
     height: 55px;
 
-    font-family: var(--text-secondary-color);
     font-size: 18px;
 }
 
@@ -908,7 +918,7 @@ div.is-displayed {
 /* Верхняя часть футера*/
 
 .main-footer {
-    font-family: var(--heading-font-family);
+    font-family: var(--heading-font-family), 'Trebuchet MS', Arial, sans-serif;
     font-size: 18px;
     line-height: 24px;
 
@@ -962,7 +972,7 @@ div.is-displayed {
 }
 
 .footer-logo::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
 
@@ -1043,7 +1053,7 @@ div.is-displayed {
     justify-content: space-between;
     align-items: center;
 
-    height: 123px;
+    min-height: 123px;
     padding-right: 12px;
     padding-bottom: 17px;
 }
@@ -1054,6 +1064,7 @@ div.is-displayed {
 
 .socials {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
 
@@ -1141,7 +1152,7 @@ div.is-displayed {
     font-size: 18px;
     line-height: 24px;
 
-    font-family: var(--heading-font-family);
+    font-family: var(--heading-font-family), 'Trebuchet MS', Arial, sans-serif;
     color: var(--text-secondary-color);
 }
 
@@ -1153,13 +1164,18 @@ div.is-displayed {
 
     padding-left: 0px;
     margin: 0px;
+
 }
 
 .promo .promo-block {
+    display: block;
     position: relative;
 
     height: 123px;
     width: 300px;
+    padding: 0;
+    margin: 0;
+
 }
 
 .promo h3:not(.promo-slides-heading) {
@@ -1190,6 +1206,7 @@ div.is-displayed {
     text-transform: uppercase;
 
     background-color: var(--transparent-button-color);
+
 }
 
 .promo-button:hover,
@@ -1401,7 +1418,7 @@ div.is-displayed {
     flex-wrap: wrap;
 
     padding: 0;
-    padding-bottom: 70px;
+    padding-bottom: 50px;
     margin: 0;
 
     list-style: none;
@@ -1409,9 +1426,11 @@ div.is-displayed {
 
 .popular-items-list li {
     margin-right: 20px;
+    margin-bottom: 20px;
 }
 
-.popular-items-list li:nth-child(4n) {
+.popular-items-list li:nth-child(4n),
+.popular-items-list li:last-child {
     margin-right: 0px;
 }
 
@@ -1460,7 +1479,7 @@ div.is-displayed {
 /* Секция services*/
 
 .services {
-    padding-top: 64px;
+    padding-top: 62px;
     padding-bottom: 5px;
 
     line-height: 25px;
@@ -1469,18 +1488,18 @@ div.is-displayed {
 }
 
 .services > .container {
-    width: 960px;
-    padding-left: 10px;
+    width: 940px;
 }
 
 .services h2 {
     margin-top: 0px;
+    margin-bottom: 21px;
 
     color: var(--text-main-color);
 }
 
 .services-heading {
-    margin-bottom: 67px;
+    margin-bottom: 38px;
 }
 
 .services-internal-container {
@@ -1490,17 +1509,18 @@ div.is-displayed {
 
 .services-buttons-list {
     padding: 0;
-    margin-top: 2px;
-    margin-right: 80px;
+    padding-top: 32px;
+    margin: 0;
+    margin-right: 50px;
 
     list-style: none;
 }
 
 .services .container::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 122px;
-    left: 240px;
+    left: 230px;
 
     height: 279px;
     width: 10px;
@@ -1518,7 +1538,7 @@ div.is-displayed {
     border: none;
     border-bottom: 1px solid var(--panels-secondary-color);
 
-    font-family: var(--heading-font-family);
+    font-family: var(--heading-font-family), 'Trebuchet MS', Arial, sans-serif;
     font-size: 21px;
     font-weight: 700;
     text-align: left;
@@ -1553,12 +1573,20 @@ div.is-displayed {
 }
 
 .service-info {
-    min-height: 281px;
+    min-height: 311px;
+    padding-left: 30px;
+    padding-top: 30px;
     display: none;
 }
 
+.current-service-info {
+    display: block;
+    position: relative;
+}
+
 .service-info h3 {
-    margin-top: 0;
+    margin-top: -2px;
+    margin-bottom: 25px;
     padding: 0;
 }
 
@@ -1566,20 +1594,44 @@ div.is-displayed {
     max-width: 335px;
 }
 
-.current-service-info {
-    display: block;
+.service-info-delivery::after {
+    content: '';
+
+    position: absolute;
+    top: 52px;
+    right: 1px;
+
+    width: 468px;
+    height: 261px;
+
+    background: url(../img/bg_services_lorry.png) no-repeat 0 0;
 }
 
-.service-info-delivery {
-    background: url(../img/bg_services_lorry.png) no-repeat top 22px right 11px;
+.service-info-warranty::after {
+    content: '';
+
+    position: absolute;
+    top: 29px;
+    right: -8px;
+
+    width: 389px;
+    height: 283px;
+
+    background: url(../img/bg_services_warranty.png) no-repeat 0 0;
 }
 
-.service-info-warranty {
-    background: url(../img/bg_services_warranty.png) no-repeat top -1px right 2px;
-}
+.service-info-credit::after {
+    content: '';
 
-.service-info-credit {
-    background: url(../img/bg_services_credit.png) no-repeat top 0px right 0px;
+    position: absolute;
+    top: 30px;
+    right: -10px;
+
+    width: 465px;
+    height: 285px;
+
+
+    background: url(../img/bg_services_credit.png) no-repeat 0 0;
 }
 
 .service-info-warranty h3 {
@@ -1620,13 +1672,13 @@ div.is-displayed {
 
     postion: relative; 
 
-    padding-top: 70px;
+    padding-top: 68px;
     padding-bottom: 70px;
 }
 
 .company-info-section h2 {
     margin-top: 0px;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 
     color: var(--text-main-color);
 }
@@ -1648,7 +1700,7 @@ div.is-displayed {
     margin-top: -3px;
     margin-bottom: 23px;
 
-    font-family: var(--heading-font-family);
+    font-family: var(--heading-font-family), 'Trebuchet MS', Arial, sans-serif;
     font-size: 18px;
     line-height: 24px;
     list-style: none;
@@ -1665,7 +1717,7 @@ div.is-displayed {
 }
 
 .about-us li::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 50%;
     left: 0px;
@@ -1683,11 +1735,11 @@ div.is-displayed {
 }
 
 .contact-us h2 {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 }
 
 .contact-us p {
-    margin-bottom: 33px;
+    margin-bottom: 32px;
 
     line-height: 25px;
 }
@@ -1721,7 +1773,7 @@ div.is-displayed {
     background-color: var(--accent-main-color);
 }
 
-/* Поп-ап "Как нас найти" */
+/* Поп-ап 'Как нас найти' */
 
 .map-popup {
     display: none;
@@ -1747,7 +1799,7 @@ div.is-displayed {
 }
 
 .map-popup::after {
-    content: "";
+    content: '';
 
     position: absolute;
     top: 0;
@@ -1759,7 +1811,7 @@ div.is-displayed {
 }
 
 
-/* Поп-ап "Напишите нам"*/
+/* Поп-ап 'Напишите нам'*/
 
 .write-us-popup {
     display: none;
@@ -1792,7 +1844,7 @@ div.is-displayed {
 }
 
 .write-us-form::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0px;
     left: 0px; 
@@ -1849,7 +1901,7 @@ div.is-displayed {
     display: block;
     margin-bottom: 10px;
 
-    font-family: var(--heading-font-family);
+    font-family: var(--heading-font-family), 'Trebuchet MS', Arial, sans-serif;
     font-size: 18px;
     line-height: 24px;
 }
@@ -1875,7 +1927,7 @@ div.is-displayed {
 
 .write-us-popup input::placeholder,
 .write-us-popup textarea::placeholder {
-    font-family: var(--content-text-family);
+    font-family: var(--content-text-family), Verdana, Arial, sans-serif;
     font-size: 13px;
     color: var(--inactive-secondary-color);
 }
@@ -1903,7 +1955,7 @@ div.is-displayed {
     flex-direction: column;
     padding-bottom: 59px;
 
-    font-family: var(--content-text-family);
+    font-family: var(--content-text-family), Verdana, Arial, sans-serif;
 }
 
 .catalog-main ul {
@@ -1941,7 +1993,7 @@ div.is-displayed {
 }
 
 .page-depth-nav li:not(:last-child)::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 12px;
     right: -24px;
@@ -1999,7 +2051,7 @@ div.is-displayed {
     border: none;
 }
 
-.filter-form label {
+.filter-form label:not(.visually-hidden) {
     display: block;
     position: relative;
 
@@ -2332,7 +2384,7 @@ div.is-displayed {
     fill: var(--accent-main-color);
 }
 
-/*   Сетка каталога, пагинация, секция "о перфораторах"   */
+/*   Сетка каталога, пагинация, секция 'о перфораторах'   */
 
 .catalog-grid {
     display: grid;
@@ -2397,19 +2449,19 @@ div.is-displayed {
 }
 
 .about-perforators .container {
-    padding-top: 40px;
+    padding-top: 37px;
     padding-bottom: 55px;
 }
 
 .about-perforators h2 {
-    margin-bottom: 23px;
+    margin-bottom: 21px;
 }
 
 .about-perforators p {
     line-height: 25px;
 }
 
-/*Pop-up "Товар добавлен в корзину!" */ 
+/* Pop-up 'Товар добавлен в корзину!' */ 
 
 .added-to-basket-popup {
     display: none;
@@ -2424,14 +2476,14 @@ div.is-displayed {
     margin-top: -141px;
     margin-left: -310px;
 
-    font-family: var(--heading-font-family);
+    font-family: var(--heading-font-family), 'Trebuchet MS', Arial, sans-serif;
 
     background-color: var(--bg-main-color);
     box-shadow: 0px 4px 20px var(--product-card-shadow-color)
 }
 
 .added-to-basket-popup::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0px;
     left: 0px; 

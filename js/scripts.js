@@ -17,7 +17,7 @@ let promoPrevious = 1;
 if (promoLength !== 0) {
 
 	if (promoLength > promoButtons.length) {
-		alert("Я сломался из-за того, что кнопок пагинации слайдов меньше, чем самих слайдов ( ͡° ͜ʖ ͡°)")
+		alert('Я сломался из-за того, что кнопок пагинации слайдов меньше, чем самих слайдов ( ͡° ͜ʖ ͡°)')
 	}
 
 	function promoShowSlides(i) {
@@ -37,8 +37,8 @@ if (promoLength !== 0) {
 	 		promoButtons[i].onclick = function(event) {
 	 		event.preventDefault();
 	 		promoShowSlides(i);
-			promoSlides[promoPrevious].style.animation = "slideshow-fadeout 0.4s";
-			promoSlides[promoCurrent].style.animation = "slideshow-fadein 0.4s";
+			promoSlides[promoPrevious].style.animation = 'slideshow-fadeout 0.4s';
+			promoSlides[promoCurrent].style.animation = 'slideshow-fadein 0.4s';
 			}
 	};
 
@@ -51,8 +51,8 @@ if (promoLength !== 0) {
 			promoShowSlides(promoCurrent - 1)
 		};
 
-		promoSlides[promoPrevious].style.animation = "slideshow-prev-remove 0.5s";
-		promoSlides[promoCurrent].style.animation = "slideshow-prev 0.5s";
+		promoSlides[promoPrevious].style.animation = 'slideshow-prev-remove 0.5s';
+		promoSlides[promoCurrent].style.animation = 'slideshow-prev 0.5s';
 	};
 
 	promoNextSlide.onclick = function(event) {
@@ -64,14 +64,14 @@ if (promoLength !== 0) {
 			promoShowSlides(promoCurrent + 1)
 		};
 
-		promoSlides[promoPrevious].style.animation = "slideshow-next-remove 0.5s";
-		promoSlides[promoCurrent].style.animation = "slideshow-next 0.5s";
+		promoSlides[promoPrevious].style.animation = 'slideshow-next-remove 0.5s';
+		promoSlides[promoCurrent].style.animation = 'slideshow-next 0.5s';
 	};
 
 }
 
 //
-// Скрипт блока "Сервисы"
+// Скрипт блока 'Сервисы'
 //
 
 let servicesSlides = document.querySelectorAll('.service-info');
@@ -119,11 +119,11 @@ if (mapPopup !== null) {
 		mapPopup.classList.remove('is-displayed');
 	};
 
-	window.addEventListener("keydown", function (event) {
+	window.addEventListener('keydown', function (event) {
 		if (event.keyCode === 27) {
-			if (mapPopup.classList.contains("is-displayed")) {
+			if (mapPopup.classList.contains('is-displayed')) {
 				event.preventDefault();
-				mapPopup.classList.remove("is-displayed");
+				mapPopup.classList.remove('is-displayed');
 			};
 		}
 	});
@@ -131,7 +131,7 @@ if (mapPopup !== null) {
 }
 
 //
-// Скрипт "Напишите нам" 
+// Скрипт 'Напишите нам' 
 //
 
 let writeUsPopup = document.querySelector('.write-us-popup');
@@ -142,14 +142,14 @@ let writeUsNameField = document.querySelector('.write-us-login');
 let writeUsEmailField = document.querySelector('.write-us-email');
 let writeUsMessage = document.querySelector('.write-us-message');
 let hasStorageSupport = true;
-let storageName = "";
-let storageEmail = "";
+let storageName = '';
+let storageEmail = '';
 
 if (writeUsPopup !== null) {
 
 	try {
-	 	storageName = localStorage.getItem("name");
-	 	storageEmail = localStorage.getItem("email");
+	 	storageName = localStorage.getItem('name');
+	 	storageEmail = localStorage.getItem('email');
 	} catch (err) {
 	 	hasStorageSupport = false;
 	}
@@ -169,30 +169,30 @@ if (writeUsPopup !== null) {
 	closeWriteUsPopup.onclick = function(event) {
 		event.preventDefault();
 		writeUsPopup.classList.remove('is-displayed');
-		writeUsPopup.classList.remove("error-animation");
+		writeUsPopup.classList.remove('error-animation');
 	};
 
-	writeUsForm.addEventListener("submit", function (event) {
+	writeUsForm.addEventListener('submit', function (event) {
 		if (!writeUsNameField.value || !writeUsEmailField.value || !writeUsMessage.value) {
 			event.preventDefault();
-			writeUsPopup.classList.remove("error-animation");
+			writeUsPopup.classList.remove('error-animation');
 			writeUsPopup.offsetWidth = writeUsPopup.offsetWidth;
-			writeUsPopup.classList.add("error-animation");
+			writeUsPopup.classList.add('error-animation');
 		} else {
 			if (hasStorageSupport) {
-				localStorage.setItem("name", writeUsNameField.value);
-				localStorage.setItem("email", writeUsEmailField.value);
-				writeUsPopup.classList.remove("error-animation");
+				localStorage.setItem('name', writeUsNameField.value);
+				localStorage.setItem('email', writeUsEmailField.value);
+				writeUsPopup.classList.remove('error-animation');
 			};
  		};
 	});
 
-	window.addEventListener("keydown", function (event) {
+	window.addEventListener('keydown', function (event) {
 		if (event.keyCode === 27) {
-			if (writeUsPopup.classList.contains("is-displayed")) {
+			if (writeUsPopup.classList.contains('is-displayed')) {
 				event.preventDefault();
-				writeUsPopup.classList.remove("is-displayed");
-				writeUsPopup.classList.remove("error-animation");
+				writeUsPopup.classList.remove('is-displayed');
+				writeUsPopup.classList.remove('error-animation');
 			};
 		}
 	});
@@ -205,7 +205,7 @@ if (writeUsPopup !== null) {
 ////////////////////////////////
 
 //
-// Скрипт "Товар добавлен в корзину"
+// Скрипт 'Товар добавлен в корзину'
 //
 
 let addItemButtons = document.querySelectorAll('.add-item-button');
@@ -236,11 +236,11 @@ if (addItemButtons != null) {
 		closeAddedToBasketPopup();
 	};
 
-	window.addEventListener("keydown", function (event) {
+	window.addEventListener('keydown', function (event) {
 		if (event.keyCode === 27) {
-			if (addedToBasket.classList.contains("is-displayed")) {
+			if (addedToBasket.classList.contains('is-displayed')) {
 				event.preventDefault();
-				addedToBasket.classList.remove("is-displayed");
+				addedToBasket.classList.remove('is-displayed');
 			};
 		}
 	});
